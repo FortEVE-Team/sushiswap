@@ -1,4 +1,4 @@
-const { SUSHI_ADDRESS } = require("@sushiswap/core-sdk");
+const { SERABE_ADDRESS } = require("@serabeswap/sdk");
 
 module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
   const { deploy } = deployments;
@@ -7,19 +7,19 @@ module.exports = async function ({ ethers, deployments, getNamedAccounts }) {
 
   const chainId = await getChainId();
 
-  let sushiAddress;
+  let serabeAddress;
 
   if (chainId === "31337") {
-    sushiAddress = (await deployments.get("SushiToken")).address;
-  } else if (chainId in SUSHI_ADDRESS) {
-    sushiAddress = SUSHI_ADDRESS[chainId];
+    serabeAddress = (await deployments.get("SerabeToken")).address;
+  } else if (chainId in SERABE_ADDRESS) {
+    serabeAddress = SERABE_ADDRESS[chainId];
   } else {
-    throw Error("No SUSHI!");
+    throw Error("No SERABE!");
   }
 
   await deploy("MiniChefV2", {
     from: deployer,
-    args: [sushiAddress],
+    args: [serabeAddress],
     log: true,
     deterministicDeployment: false,
   });
