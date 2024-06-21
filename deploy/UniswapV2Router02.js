@@ -1,4 +1,4 @@
-const { WNATIVE_ADDRESS } = require("@sushiswap/core-sdk");
+const { WNATIVE_ADDRESS } = require("@serabeswap/sdk");
 
 module.exports = async function ({ getNamedAccounts, deployments }) {
   const { deploy } = deployments;

@@ -308,6 +308,13 @@ const config: HardhatUserConfig = {
       live: true,
       saveDeployments: true,
     },
+    findora_testnet: {
+      url: "https://prod-forge.prod.findora.org:8545",
+      accounts,
+      chainId: 525,
+      live: true,
+      saveDeployments: true,
+    },
   },
   paths: {
     artifacts: "artifacts",

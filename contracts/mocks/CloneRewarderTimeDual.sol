@@ -80,7 +80,7 @@ contract CloneRewarderTimeDual is IRewarder,  BoringOwnable{
         emit LogInit(rewardToken1, rewardToken2, owner, rewardPerSecond1, rewardPerSecond2, masterLpToken);
     }
 
-    function onSushiReward (uint256 pid, address _user, address to, uint256, uint256 lpTokenAmount) onlyMCV2 lock override external {
+    function onSerabeReward (uint256 pid, address _user, address to, uint256, uint256 lpTokenAmount) onlyMCV2 lock override external {
         require(IMasterChefV2(MASTERCHEF_V2).lpToken(pid) == masterLpToken);
 
         PoolInfo memory pool = updatePool(pid);
@@ -143,7 +143,7 @@ contract CloneRewarderTimeDual is IRewarder,  BoringOwnable{
         return (_rewardRates);
     }
 
-    /// @notice Sets the sushi per second to be distributed. Can only be called by the owner.
+    /// @notice Sets the serabe per second to be distributed. Can only be called by the owner.
     /// @param _rewardPerSecond1 The amount of reward token 1 to be distributed per second.
     /// @param _rewardPerSecond2 The amount of reward token 2 to be distributed per second.
     function setRewardPerSecond(uint128 _rewardPerSecond1, uint128 _rewardPerSecond2) public onlyOwner {
